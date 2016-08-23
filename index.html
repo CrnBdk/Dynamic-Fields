@@ -90,17 +90,6 @@
 
 <script type="text/javascript">
 
- var label = JFCustomWidget.getQueryString('QuestionLabel');
-            document.getElementById('boxContainer').innerHTML = label;
-            JFCustomWidget.subscribe('ready', function() {
-                JFCustomWidget.subscribe("submit", function(){
-                    var msg = {
-                        value: document.getElementById('usInp').value
-                    }
-                    JFCustomWidget.sendSubmit(msg);
-                });
-            });
-
 	counter = 0;
 
 	function addElem() {
@@ -119,7 +108,16 @@ var countChecked = function() {
   $( "div" ).text( n + (n === 1 ? " is" : " are") + " checked!" );
 };
 
-
+ var label = JFCustomWidget.getQueryString('QuestionLabel');
+            document.getElementById('boxContainer').innerHTML = label;
+            JFCustomWidget.subscribe('ready', function() {
+                JFCustomWidget.subscribe("submit", function(){
+                    var msg = {
+                        value: document.getElementById('usInp').value
+                    }
+                    JFCustomWidget.sendSubmit(msg);
+                });
+            });
 
 </script>
 

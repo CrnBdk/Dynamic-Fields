@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-        
+    <script src="http://js.jotform.com/JotFormCustomWidget.min.js"></script> 
        
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
@@ -82,7 +82,7 @@
 	<div class="row">
 		<div class="col-md-6">
 			<form role="form" autocomplete="off" class="form-inline" id="myform">
-				<div><input class="check" type="checkbox" name="newsletter" checked="checked"><div class="form-group" id="boxContainer"><input class="form" type="text" name="field" placeholder="" ></div><button class="btn btn-success btn-add plusButton" type="button" onclick="addElem()">
+				<div><div class="form-group" id="boxContainer"><input class="form" type="text" name="field" placeholder="" id="usInp"></div><button class="btn btn-success btn-add plusButton" type="button" onclick="addElem()">
 						<span class="glyphicon glyphicon-plus"></span>
 					</button><button class="btn btn-danger btn-remove plusBtn" type="button" onclick="removeElem(this)">
 						 <span class="glyphicon glyphicon-minus"></span>
@@ -94,6 +94,23 @@
 </div>
 
 <script type="text/javascript">
+
+  
+            var label = JFCustomWidget.getQueryString('QuestionLabel');
+            document.getElementById('boxContainer').innerHTML = label;
+            JFCustomWidget.subscribe('ready', function() {
+                JFCustomWidget.subscribe("submit", function(){
+                    var msg = {
+                        value: document.getElementById('usInp').value
+                    }
+                    JFCustomWidget.sendSubmit(msg);
+                });
+            });
+           
+
+
+
+
 	counter = 0;
 
 	function addElem() {

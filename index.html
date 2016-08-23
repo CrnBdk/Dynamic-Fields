@@ -104,11 +104,12 @@
   });
 
     JFCustomWidget.subscribe("submit", function() {
-      var result = {value:"", valid: false};
+      var result = {value:"", valid: true};
        result = document.getElementById("input").value;
-   if (result.checkValidity() == false) {
-        document.getElementById("input").innerHTML = "Input ok";
-    } 
+   
+
+
+
       JFCustomWidget.sendSubmit(result);
     });
      

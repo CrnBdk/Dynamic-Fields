@@ -120,12 +120,11 @@
 
     JFCustomWidget.subscribe("ready", function(){
       fontsize = parseInt(JFCustomWidget.getWidgetSetting('userFontSize'));
-      document.getElementById('input').innerHTML = fontsize;
+ 
       fontfamily = JFCustomWidget.getWidgetSetting('userFontFamily');
-      document.getElementById('input').innerHTML = fontfamily;
+      
       fontcolor = JFCustomWidget.getWidgetSetting('userFontColor');
-      document.getElementById('input').innerHTML = fontcolor;
-
+  
   });
 
     JFCustomWidget.subscribe("submit", function() {

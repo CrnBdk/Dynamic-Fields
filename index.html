@@ -16,7 +16,7 @@
 	      body {
 		    font: 12px 'Helvetica Neue', Helvetica, Arial,freesans, clean, sans-serif;
 		    color: #333;
-   }
+  }
 	     
 	     form {
 		   padding: 50px; 
@@ -117,17 +117,19 @@
 
 
 <script type="text/javascript">
- $(document).ready(function() {
-  
+    
      var fontsize = 20;
      var fontcolor = "#000000";
-     var fontfamily = "sans-serif";
+     var fontfamily = "Arial";
 
 
     JFCustomWidget.subscribe("ready", function(){
-      fontsize = JFCustomWidget.getWidgetSetting('userFontSize');
+      fontsize = parseInt(JFCustomWidget.getWidgetSetting('userFontSize'));
+      document.getElementById('input').innerHTML = fontsize;
       fontfamily = JFCustomWidget.getWidgetSetting('userFontFamily');
+      document.getElementById('input').innerHTML = fontfamily;
       fontcolor = JFCustomWidget.getWidgetSetting('userFontColor');
+      document.getElementById('input').innerHTML = fontcolor;
 
   });
 
@@ -161,7 +163,7 @@ var countChecked = function() {
   var n = $( "input:checked" ).length;
   $( "div" ).text( n + (n === 1 ? " is" : " are") + " checked!" );
 };
-});
+
 
 </script>
 

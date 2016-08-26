@@ -205,15 +205,25 @@ var countChecked = function() {
   var n = $( "input:checked" ).length;
   $( "div" ).text( n + (n === 1 ? " is" : " are") + " checked!" );
 };
-
-</script>
-<script language="javaScript">
-
-function autoResize(){
-    $('#themeframe').height($('#themeframe').contents().height());
+function doIframe() {
+    var $iframes = $("iframe.autoHeight"); 
+    $iframes.each(function() {
+        var iframe = this;
+        $(iframe).load(function() {
+            setHeight(iframe);
+        });
+    });
 }
 
+function setHeight(e) {
+  e.height = e.contentWindow.document.body.scrollHeight + 35;
+}
+
+$(window).load(function() {
+    doIframe();
+});
+
 </script>
-<iframe id="themeframe" onLoad="autoResize();" marginheight="0" frameborder="0" src="URL"></iframe>
+
 </body>
 </html>

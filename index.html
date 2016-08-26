@@ -18,7 +18,12 @@
        text-align: center;
    }
 
-       body, html { margin: 0; }
+       body, html {
+        width:100%;
+       height:100%;
+       overflow:hidden;
+        margin:0px;   
+}
        body * { box-sizing: border-box; }
   
       .container {
@@ -205,25 +210,11 @@ var countChecked = function() {
   var n = $( "input:checked" ).length;
   $( "div" ).text( n + (n === 1 ? " is" : " are") + " checked!" );
 };
-function doIframe() {
-    var $(iframes) = $("iframe.autoHeight"); 
-    $(iframes).each(function() {
-        var iframe = this;
-        $(iframe).load(function() {
-            setHeight(iframe);
-        });
-    });
+function autoResize(iframe) {
+    $(iframe).width($(iframe).contents().find('html').width());
 }
-
-function setHeight(e) {
-  e.height = e.contentWindow.document.body.scrollHeight + 35;
-}
-
-$(window).load(function() {
-    doIframe();
-});
 
 </script>
-
+<iframe width="100%" height="100%" marginheight="0" frameborder="0" border="0" scrolling="auto" onload="autoResize(this);"></iframe>
 </body>
 </html>

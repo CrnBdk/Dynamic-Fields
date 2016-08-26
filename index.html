@@ -24,7 +24,7 @@
        overflow:hidden;
         margin:0px;   
 }
-       body * { box-sizing: border-box; }
+       body * { box-sizing: border-box;}
   
       .container {
        padding: 0 20px;
@@ -125,7 +125,7 @@
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
 <div class="container">
-  <div class="row">
+  <div class="row" onload=”resizeFrame(document.getElementById(‘boxContainer’))”>
 
     <form role="form" autocomplete="off" class="form-inline" id="myform">
       <ul class="list">

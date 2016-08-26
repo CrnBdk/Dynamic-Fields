@@ -206,8 +206,8 @@ var countChecked = function() {
   $( "div" ).text( n + (n === 1 ? " is" : " are") + " checked!" );
 };
 function doIframe() {
-    var $iframes = $("iframe.autoHeight"); 
-    $iframes.each(function() {
+    var $(iframes) = $("iframe.autoHeight"); 
+    $(iframes).each(function() {
         var iframe = this;
         $(iframe).load(function() {
             setHeight(iframe);

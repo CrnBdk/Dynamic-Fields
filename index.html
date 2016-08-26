@@ -196,7 +196,8 @@
     counter++;
     // $('#myform').append('<div><div class="form-group" id="boxContainer'+counter+'"><input id="input'+counter+'" class="form" type="text" name="field" placeholder=""></div><button id="add'+counter+'" class="btn btn-success btn-add plusButton" type="button" onclick="addElem()"><span class="glyphicon glyphicon-plus"></span></button><button id="remove'+counter+'" class="btn btn-danger btn-remove plusBtn" type="button" onclick="removeElem(this)"><span class="glyphicon glyphicon-minus"></span></button></div>');
     $('#myform ul').append('<li class="card listItem" id="boxContainer'+counter+'"><div class="card-rightSide"><button class="btn btn-success btn-add plusButton" type="button" onclick="addElem()" id="add'+counter+'"><span class="glyphicon glyphicon-plus"></span></button><button class="btn btn-danger btn-remove plusBtn" id="remove'+counter+'" type="button" onclick="removeElem(this)"><span class="glyphicon glyphicon-minus"></span></button></div><div class="card-contentWrapper"><div class="card-content"><input id="input'+counter+'" class="form" type="text" name="field" placeholder="" ></div></div></li>');
-    console.log($("body").height());
+    console.log($(".list").height());
+    $("html").parent().height($(".list").height());
   }
 
 

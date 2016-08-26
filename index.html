@@ -3,25 +3,23 @@
 <head>
         
       <script src="https://js.jotform.com/JotFormCustomWidget.min.js"></script> 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
 
 
-	<title>
-		Dynamic Add&Del
-	</title>
+  <title>
+    Dynamic Add&Del
+  </title>
        <style type="text/css">
 
 
-	     
-	     form {
-		   padding: 50px; 
-		   text-align: center;
-	 }
-       form div {
-        margin-bottom: 5px;
-   } 	
-	     body, html { margin: 0; background: #f3f3f3; }
+       
+       form {
+       padding: 50px; 
+       text-align: center;
+   }
+
+       body, html { margin: 0; background: #f3f3f3; }
        body * { box-sizing: border-box; }
   
       .container {
@@ -42,7 +40,9 @@
   }
 }
 
-	   input[type=text] {
+  .btn { padding: 0; }
+
+     input[type=text] {
      width: 100%;
      padding: 5px 12px;
      line-height: 18px;
@@ -60,29 +60,56 @@
       padding: 0;
    }
 
-	   .moveButton{
-	    border: 0;
-	    font-size: 10px;
-	 }
-	    
-      .form-group ~ button{
+     .moveButton{
+      border: 0;
+      font-size: 10px;
+   }
+      
+      .form-group ~ button {
        margin-left: 5px;
    }
       .plusBtn{
       font-size: 10px;
    }
       .plusButton{
-    	font-size: 10px;
+      font-size: 10px;
    }
 
-        form > div .btn-add { display: none; }
-        form > div:last-child .btn-remove { display: none; }
-        form > div:last-child .btn-add { display: inline-block; }
+        form ul li .card-rightSide .btn-add { display: none; }
+        form ul li:last-child .card-rightSide .btn-remove { display: none; }
+        form ul li:last-child .card-rightSide  .btn-add { display: inline-block; }
         
       .check, input[type=checkbox] {
       margin: 12px 6px 0 0;
       display: inline-block;
    }
+
+    .card-rightSide {
+      float: right;
+      margin-left: 12px;
+    }
+    .card-leftSide {
+      float: left;
+      margin-right: 12px;
+    }
+    .card-contentWrapper:before,
+    .card-contentWrapper:after {
+      content: " ";
+      display: table;
+    }
+    .card-contentWrapper:after {
+      clear: both;
+    }
+    .card-content {
+      display: table-cell;
+      vertical-align: top;
+      width: 10000px;
+    }
+    .listItem + .listItem {
+      margin-top: 12px;
+    }
+
+    ul, ol { list-style: none; }
 
        </style>
 
@@ -96,19 +123,41 @@
   <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <div class="container">
-	<div class="row">
-		<div class="col-md-6">
-			<form role="form" autocomplete="off" class="form-inline" id="myform">
-				<div><div class="form-group" id="boxContainer"><input id="input" class="form" type="text" name="field" placeholder="" ></div><button class="btn btn-success btn-add plusButton" type="button" onclick="addElem()">
-						<span class="glyphicon glyphicon-plus"></span>
-					</button><button class="btn btn-danger btn-remove plusBtn" type="button" onclick="removeElem(this)">
-						 <span class="glyphicon glyphicon-minus"></span>
-					</button>
-				</div>
-			</form>
-		</div>
-	</div>
+  <div class="row">
+
+    <form role="form" autocomplete="off" class="form-inline" id="myform">
+      <ul class="list">
+        <li class="card listItem" id="boxContainer">
+          <div class="card-rightSide">
+            <button class="btn btn-success btn-add plusButton" type="button" onclick="addElem()">
+              <span class="glyphicon glyphicon-plus"></span>
+            </button>
+            <button class="btn btn-danger btn-remove plusBtn" type="button" onclick="removeElem(this)">
+               <span class="glyphicon glyphicon-minus"></span>
+            </button>
+          </div>
+          <div class="card-contentWrapper">
+            <div class="card-content">
+              <input id="input" class="form" type="text" name="field" placeholder="" >
+            </div>
+          </div>
+        </li>
+      </ul>
+    </form>
+
+    <div class="col-md-6" style="display: none;">
+      <form role="form" autocomplete="off" class="form-inline" id="myform">
+        <div><div class="form-group" id="boxContainer"><input id="input" class="form" type="text" name="field" placeholder="" ></div><button class="btn btn-success btn-add plusButton" type="button" onclick="addElem()">
+            <span class="glyphicon glyphicon-plus"></span>
+          </button><button class="btn btn-danger btn-remove plusBtn" type="button" onclick="removeElem(this)">
+             <span class="glyphicon glyphicon-minus"></span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
+
 
 
 <script type="text/javascript">
@@ -138,21 +187,21 @@
       });
      var counter = 0;
 
-	function addElem() {
-		
-		counter++;
-		$('#myform').append('<div><div class="form-group" id="boxContainer'+counter+'"><input id="input'+counter+'" class="form" type="text" name="field" placeholder=""></div><button id="add'+counter+'" class="btn btn-success btn-add plusButton" type="button" onclick="addElem()"><span class="glyphicon glyphicon-plus"></span></button><button id="remove'+counter+'" class="btn btn-danger btn-remove plusBtn" type="button" onclick="removeElem(this)"><span class="glyphicon glyphicon-minus"></span></button></div>');
-
-	}
+  function addElem() {
+    
+    counter++;
+    // $('#myform').append('<div><div class="form-group" id="boxContainer'+counter+'"><input id="input'+counter+'" class="form" type="text" name="field" placeholder=""></div><button id="add'+counter+'" class="btn btn-success btn-add plusButton" type="button" onclick="addElem()"><span class="glyphicon glyphicon-plus"></span></button><button id="remove'+counter+'" class="btn btn-danger btn-remove plusBtn" type="button" onclick="removeElem(this)"><span class="glyphicon glyphicon-minus"></span></button></div>');
+    $('#myform ul').append('<li class="card listItem" id="boxContainer'+counter+'"><div class="card-rightSide"><button class="btn btn-success btn-add plusButton" type="button" onclick="addElem()" id="add'+counter+'"><span class="glyphicon glyphicon-plus"></span></button><button class="btn btn-danger btn-remove plusBtn" id="remove'+counter+'" type="button" onclick="removeElem(this)"><span class="glyphicon glyphicon-minus"></span></button></div><div class="card-contentWrapper"><div class="card-content"><input id="input'+counter+'" class="form" type="text" name="field" placeholder="" ></div></div></li>');
+  }
 
 
             
 
-	function removeElem(el) {
-		$(el).parent().remove();
-	}
+  function removeElem(el) {
+    $(el).parent().parent().remove();
+  }
 
-	
+  
 
 var countChecked = function() {
   var n = $( "input:checked" ).length;

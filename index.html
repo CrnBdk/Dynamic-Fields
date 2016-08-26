@@ -129,7 +129,7 @@
 
     JFCustomWidget.subscribe("submit", function() {
       var result = {value:"", valid: false};
-      result.value = document.getElementById("input").value;
+      result.value = document.getElementById("input'+counter+'").value;
       result.valid = true;
    
       JFCustomWidget.sendSubmit(result);

@@ -8,8 +8,17 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "addel": "^1.1.1"
+    "addel": "^1.1.1",
+    "iframe-resizer": "^3.5.5"
   },
   "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CrnBdk/Dynamic-Fields.git"
+  },
+  "bugs": {
+    "url": "https://github.com/CrnBdk/Dynamic-Fields/issues"
+  },
+  "homepage": "https://github.com/CrnBdk/Dynamic-Fields#readme",
   "description": ""
 }

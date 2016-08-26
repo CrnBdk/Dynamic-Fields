@@ -104,16 +104,11 @@
       margin-top: 12px;
     }
 
+    iframe{width:100%}
     ul, ol { list-style: none; padding: 0; margin: 0; }
 
        </style>
 
-<style>
-    #myFrame { width:100%; height:100%; }
-</style>
-
-<iframe src="html_intro.asp" id="myFrame">
-</iframe>
 </head>
 <body>
 
@@ -123,6 +118,7 @@
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  
 <div class="container">
   <div class="row">
 
@@ -193,6 +189,7 @@
     counter++;
     // $('#myform').append('<div><div class="form-group" id="boxContainer'+counter+'"><input id="input'+counter+'" class="form" type="text" name="field" placeholder=""></div><button id="add'+counter+'" class="btn btn-success btn-add plusButton" type="button" onclick="addElem()"><span class="glyphicon glyphicon-plus"></span></button><button id="remove'+counter+'" class="btn btn-danger btn-remove plusBtn" type="button" onclick="removeElem(this)"><span class="glyphicon glyphicon-minus"></span></button></div>');
     $('#myform ul').append('<li class="card listItem" id="boxContainer'+counter+'"><div class="card-rightSide"><button class="btn btn-success btn-add plusButton" type="button" onclick="addElem()" id="add'+counter+'"><span class="glyphicon glyphicon-plus"></span></button><button class="btn btn-danger btn-remove plusBtn" id="remove'+counter+'" type="button" onclick="removeElem(this)"><span class="glyphicon glyphicon-minus"></span></button></div><div class="card-contentWrapper"><div class="card-content"><input id="input'+counter+'" class="form" type="text" name="field" placeholder="" ></div></div></li>');
+    console.log($("body").height());
   }
 
 
@@ -211,6 +208,27 @@ var countChecked = function() {
 
 
 </script>
+<script type="application/javascript">
+
+function resizeIFrameToFitContent( iFrame ) {
+
+    iFrame.width  = iFrame.contentWindow.document.body.scrollWidth;
+    iFrame.height = iFrame.contentWindow.document.body.scrollHeight;
+}
+
+window.addEventListener('DOMContentReady', function(e) {
+
+    var iFrame = document.getElementById( 'iFrame1' );
+    resizeIFrameToFitContent( iFrame );
+
+    var iframes = document.querySelectorAll("iframe");
+    for( var i = 0; i < iframes.length; i++) {
+        resizeIFrameToFitContent( iframes[i] );
+    }
+} );
+
+</script>
+<iframe src="" id="iFrame1"></iframe>
 
 </body>
 </html>

@@ -166,20 +166,7 @@
 
 <script type="text/javascript">
     
-     var fontsize = 20;
-     var fontcolor = "#000000";
-     var fontfamily = "";
-
-
-    JFCustomWidget.subscribe("ready", function(){
-      fontsize = parseInt(JFCustomWidget.getWidgetSetting('userFontSize'));
- 
-      fontfamily = JFCustomWidget.getWidgetSetting('userFontFamily');
-      
-      fontcolor = JFCustomWidget.getWidgetSetting('userFontColor');
   
- 
-
     JFCustomWidget.subscribe("submit", function() {
       var result = {value:"", valid: false};
       $('input').each(function() {
@@ -190,7 +177,7 @@
       JFCustomWidget.sendSubmit(result);
     });
      
-      });
+
      var counter = 0;
 
   function addElem() {

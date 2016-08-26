@@ -118,7 +118,8 @@
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-  
+<iframe src="http://anotherdomain.com/iframe.html" scrolling="no"></iframe>
+
 <div class="container">
   <div class="row">
 
@@ -206,29 +207,6 @@ var countChecked = function() {
   $( "div" ).text( n + (n === 1 ? " is" : " are") + " checked!" );
 };
 
-
 </script>
-<script type="application/javascript">
-
-function resizeIFrameToFitContent( iFrame ) {
-
-    iFrame.width  = iFrame.contentWindow.document.body.scrollWidth;
-    iFrame.height = iFrame.contentWindow.document.body.scrollHeight;
-}
-
-window.addEventListener('DOMContentReady', function(e) {
-
-    var iFrame = document.getElementById( 'iFrame1' );
-    resizeIFrameToFitContent( iFrame );
-
-    var iframes = document.querySelectorAll("iframe");
-    for( var i = 0; i < iframes.length; i++) {
-        resizeIFrameToFitContent( iframes[i] );
-    }
-} );
-
-</script>
-<iframe src="" id="iFrame1"></iframe>
-
 </body>
 </html>
